@@ -6,11 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.utils.imu.getHeading;
-
 public class Drivetrain {
     private HardwareMap hardwareMap;
-    public getHeading heading;
 
     public final DcMotorEx leftFront, leftBack, rightBack, rightFront;
 
@@ -28,8 +25,8 @@ public class Drivetrain {
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     public void runDriveCode(float left_stick_x, float left_stick_y, float right_stick_x) {
@@ -50,10 +47,11 @@ public class Drivetrain {
     }
     
     public void fieldCentricDrive(float left_stick_x, float left_stick_y, float right_stick_x) {
-        float yaw = heading.heading.secondAngle;
-
+/*
         double x = left_stick_x*(Math.cos(yaw))+left_stick_y*(Math.sin(yaw));
         double y = left_stick_y*(Math.cos(yaw))-left_stick_x*(Math.sin(yaw));
+
+
         double rotation = right_stick_x;
 
         double frontLeftPower = y - rotation - x;
@@ -62,7 +60,7 @@ public class Drivetrain {
         double backRightPower = y + rotation - x;
 
         setPowers(frontLeftPower , frontRightPower, backLeftPower,backRightPower);
-
+*/
     }
     
     public void setPowers(double lf, double rf, double lb, double rb) {

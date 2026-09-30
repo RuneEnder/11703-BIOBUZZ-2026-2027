@@ -6,7 +6,7 @@ public class RobotStateHandler {
     private HardwareMap hardwareMap;
 
     public enum DriveState {
-        FEILD_CENTRIC,
+        FIELD_CENTRIC,
         HIVE_CENTRIC,
         PASSIVE
     }
