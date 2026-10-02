@@ -15,10 +15,25 @@ public class fieldCentricTeleop extends LinearOpMode {
 
         Globals.init(telemetry);
 
+
+        //-----------------------------------------------------------------
+        // Initialization ↑ and Start ↓
+        //-----------------------------------------------------------------
+
+
+        waitForStart();
+
         while (!opModeIsActive()) {
             telemetry.update();
         }
 
+
+        //-----------------------------------------------------------------
+        // Start ↑ and Primary Loop ↓
+        //-----------------------------------------------------------------
+
+
+        // Primary loop
         while (opModeIsActive() && !isStopRequested()) {
             drive.runDriveCode(
                     gamepad1.left_stick_x,
@@ -26,6 +41,11 @@ public class fieldCentricTeleop extends LinearOpMode {
                     gamepad1.right_stick_x
             );
         }
+
+
+        // Emergency shut down
         drive.setPowers(0, 0, 0, 0);
+
+
     }
 }
