@@ -18,7 +18,7 @@ import java.util.List;
 public class ThreeWheelTuner extends Procedure {
 
     private static String leftEncoderName = "lf";
-    private static String rightEncoderName = "rr";
+    private static String rightEncoderName = "rf";
     private static String strafeEncoderName = "lr";
 
     public ThreeWheelTuner() {
@@ -30,7 +30,7 @@ public class ThreeWheelTuner extends Procedure {
         Inputs setup = inputs("Encoder Setup",
                 "Set the motor ports that the three odometry encoders are plugged into.");
         Inputs.Field<String> leftEncoder = setup.s("Left Encoder Motor Name").withDefault("lf");
-        Inputs.Field<String> rightEncoder = setup.s("Right Encoder Motor Name").withDefault("rr");
+        Inputs.Field<String> rightEncoder = setup.s("Right Encoder Motor Name").withDefault("rf");
         Inputs.Field<String> strafeEncoder = setup.s("Strafe Encoder Motor Name").withDefault("lr");
         awaitInputs(setup);
         leftEncoderName = leftEncoder.get();

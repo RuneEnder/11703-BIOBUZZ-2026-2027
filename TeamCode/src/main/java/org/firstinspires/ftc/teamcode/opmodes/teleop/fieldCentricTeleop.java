@@ -40,6 +40,13 @@ public class fieldCentricTeleop extends LinearOpMode {
                     gamepad1.left_stick_y,
                     gamepad1.right_stick_x
             );
+
+            telemetry.addData("Front Left (L): ", drive.leftFront.getCurrentPosition());
+            telemetry.addData("Front Right (R): ", drive.rightFront.getCurrentPosition());
+            telemetry.addData("Left Back: ", drive.leftBack.getCurrentPosition());
+
+            telemetry.update();
+
         }
 
 
