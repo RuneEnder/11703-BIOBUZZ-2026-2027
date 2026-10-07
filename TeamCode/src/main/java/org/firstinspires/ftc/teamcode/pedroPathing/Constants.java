@@ -32,9 +32,9 @@ public class Constants {
 //            .leftPodY(6.125)
 //            .rightPodY(-6.125)
 //            .strafePodX(6.78125)
-            .leftEncoder_HardwareMapName("fl")
-            .rightEncoder_HardwareMapName("br")
-            .strafeEncoder_HardwareMapName("fr")
+            .leftEncoder_HardwareMapName("lf")
+            .rightEncoder_HardwareMapName("rf")
+            .strafeEncoder_HardwareMapName("lr")
             .leftEncoderDirection(Encoder.FORWARD) // Needs to be the reverse of what is in mecanum drive b.c. build team
             .rightEncoderDirection(Encoder.REVERSE)
             .strafeEncoderDirection(Encoder.FORWARD) // Needs to be the reverse of what is in mecanum drive b.c. build team
@@ -44,10 +44,10 @@ public class Constants {
 
     public static MecanumConstants driveConstants = new MecanumConstants()
             .maxPower(1)
-            .rightFrontMotorName("fr")
-            .rightRearMotorName("br")
-            .leftRearMotorName("bl")
-            .leftFrontMotorName("fl")
+            .rightFrontMotorName("rf")
+            .rightRearMotorName("rr")
+            .leftRearMotorName("lr")
+            .leftFrontMotorName("lf")
             .leftFrontMotorDirection(DcMotorEx.Direction.FORWARD)
             .leftRearMotorDirection(DcMotorEx.Direction.FORWARD)
             .rightFrontMotorDirection(DcMotorEx.Direction.REVERSE)
