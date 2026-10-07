@@ -14,10 +14,10 @@ public class Drivetrain {
     public Drivetrain(HardwareMap hardwareMapRef) {
         hardwareMap = hardwareMapRef;
 
-        leftFront = hardwareMap.get(DcMotorEx.class, "fl");
-        rightFront = hardwareMap.get(DcMotorEx.class, "fr");
-        leftBack = hardwareMap.get(DcMotorEx.class, "bl");
-        rightBack = hardwareMap.get(DcMotorEx.class, "br");
+        leftFront = hardwareMap.get(DcMotorEx.class, "lf");
+        rightFront = hardwareMap.get(DcMotorEx.class, "rf");
+        leftBack = hardwareMap.get(DcMotorEx.class, "lr");
+        rightBack = hardwareMap.get(DcMotorEx.class, "rr");
 
 
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
