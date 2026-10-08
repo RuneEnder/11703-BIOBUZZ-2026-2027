@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode.mechaninisms;
 
 
+import com.pedropathing.drivetrain.DrivePowers;
+import com.pedropathing.follower.Follower;
+import com.pedropathing.follower.ManualDrive;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -8,7 +11,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Drivetrain {
     private HardwareMap hardwareMap;
-
+    private Follower follower;
     public final DcMotorEx leftFront, leftBack, rightBack, rightFront;
 
     public Drivetrain(HardwareMap hardwareMapRef) {
@@ -45,22 +48,17 @@ public class Drivetrain {
         setPowers(frontLeftPower , frontRightPower, backLeftPower,backRightPower );
 
     }
-    
+
     public void fieldCentricDrive(float left_stick_x, float left_stick_y, float right_stick_x) {
-/*
-        double x = left_stick_x*(Math.cos(yaw))+left_stick_y*(Math.sin(yaw));
-        double y = left_stick_y*(Math.cos(yaw))-left_stick_x*(Math.sin(yaw));
+        DrivePowers powers = ManualDrive.fieldCentric(
+                -left_stick_y,
+                left_stick_x ,
+                right_stick_x,
+                follower.pose().heading()
+        );
 
-
-        double rotation = right_stick_x;
-
-        double frontLeftPower = y - rotation - x;
-        double frontRightPower = y + rotation + x;
-        double backLeftPower = y - rotation + x;
-        double backRightPower = y + rotation - x;
-
-        setPowers(frontLeftPower , frontRightPower, backLeftPower,backRightPower);
-*/
+        follower.manual(powers);
+        follower.update();
     }
     
     public void setPowers(double lf, double rf, double lb, double rb) {

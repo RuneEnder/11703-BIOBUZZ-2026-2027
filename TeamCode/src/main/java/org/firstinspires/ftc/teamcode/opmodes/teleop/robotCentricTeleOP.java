@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.mechaninisms.Drivetrain;
 import org.firstinspires.ftc.teamcode.utils.Globals;
 
-@TeleOp(name = "Field Centric TeleOP", group = "Linear OpMode")
-public class fieldCentricTeleop extends LinearOpMode {
+@TeleOp(name = "Robot Centric TeleOP", group = "Linear OpMode")
+public class robotCentricTeleOP extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
