@@ -18,7 +18,7 @@ public class ZeroArtifactAuto extends OpMode {
     public int pathState = 0;
 
     // Various positions for each configuration
-    boolean isRedAlliance = true;nb
+    boolean isRedAlliance = true;
     boolean isWallSide = true;
     private final Pose startPoseRedWall = new Pose(88, 8, Math.toRadians(90));
     private final Pose endPoseRedWall = new Pose(108, 10, Math.toRadians(90));

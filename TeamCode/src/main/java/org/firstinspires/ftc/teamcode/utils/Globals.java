@@ -10,10 +10,13 @@ public final class Globals {
     public static Telemetry telemetry;
     public static RobotConstants constants;
     public static AllianceColor allianceColor = AllianceColor.None;
+    public static boolean startsInCorner = false;
+
+
 
     public static boolean isTeleOp = true;
 
-    public static void init(Telemetry telemetry) {
+    public static void init_TeleOp(Telemetry telemetry) {
         isTeleOp = true;
         //imu.imuinit();
         Globals.telemetry = telemetry;
