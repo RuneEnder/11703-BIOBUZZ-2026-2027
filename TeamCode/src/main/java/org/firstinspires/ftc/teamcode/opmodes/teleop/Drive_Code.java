@@ -74,9 +74,13 @@ public class Drive_Code extends LinearOpMode {
             );
 
 
-            telemetry.addData("Front Left (L): ", drive.leftFront.getCurrentPosition());
-            telemetry.addData("Front Right (R): ", drive.rightFront.getCurrentPosition());
-            telemetry.addData("Left Back: ", drive.leftBack.getCurrentPosition());
+            telemetry.addData("TeleOp: ", (RobotVars.allianceColor == AllianceColor.Red ? "Red " : "Blue ") + (RobotVars.startsInCorner ? "Corner" : "Wall"));
+            telemetry.addData("Start Pose: ", RobotVars.startPose);
+            telemetry.addData("Left Front", drive.leftFront.getCurrentPosition());
+            telemetry.addData("Left Rear: ", drive.leftBack.getCurrentPosition());
+            telemetry.addData("Right Front", drive.rightFront.getCurrentPosition());
+            telemetry.addData("Right Rear: ", drive.rightBack.getCurrentPosition());
+
 
             telemetry.update();
 

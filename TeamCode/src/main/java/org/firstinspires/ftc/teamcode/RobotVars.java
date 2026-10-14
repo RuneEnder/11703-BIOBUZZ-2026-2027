@@ -12,7 +12,7 @@ public class RobotVars {
     public static RobotConstants constants;
     public static AllianceColor allianceColor = AllianceColor.None;
     public static boolean startsInCorner = false;
-    public Pose startPose = constants.startPoseRedWall;
+    public static Pose startPose = constants.startPoseRedWall;
 
 
     public void setStartPose() {
