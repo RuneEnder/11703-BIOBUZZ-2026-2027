@@ -3,8 +3,8 @@ package org.firstinspires.ftc.teamcode.opmodes.teleop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.RobotVars;
 import org.firstinspires.ftc.teamcode.mechaninisms.Drivetrain;
-import org.firstinspires.ftc.teamcode.utils.Globals;
 import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 
 @TeleOp(name = "Robot Centric TeleOP", group = "Linear OpMode")
@@ -12,9 +12,12 @@ public class Drive_Code extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        Globals.init_TeleOp(telemetry);
 
-        Drivetrain drive = new Drivetrain(hardwareMap, Globals.constants);
+        RobotVars robotVars = new RobotVars();
+
+        robotVars.init_TeleOp(telemetry);
+
+        Drivetrain drive = new Drivetrain(hardwareMap, robotVars);
 
 
 
@@ -26,33 +29,32 @@ public class Drive_Code extends LinearOpMode {
         waitForStart();
 
         while (!opModeIsActive()) {
-            telemetry.update();
 
             if (gamepad2.xWasPressed()) {
-                Globals.allianceColor = AllianceColor.Blue;
-                Globals.constants.setStartPose(AllianceColor.Blue, Globals.startsInCorner);
+                robotVars.allianceColor = AllianceColor.Blue;
+                robotVars.setStartPose();
 
-                drive.follower.setStartingPose(Globals.constants.startPose);
+                drive.follower.setStartingPose(robotVars.startPose);
             } else if (gamepad2.bWasPressed()) {
-                Globals.allianceColor = AllianceColor.Red;
-                Globals.constants.setStartPose(AllianceColor.Red, Globals.startsInCorner);
+                robotVars.allianceColor = AllianceColor.Red;
+                robotVars.setStartPose();
 
-                drive.follower.setStartingPose(Globals.constants.startPose);
+                drive.follower.setStartingPose(robotVars.startPose);
             }
 
             if (gamepad2.dpadDownWasPressed()) {
-                Globals.startsInCorner = false;
-                Globals.constants.setStartPose(Globals.allianceColor, false);
+                robotVars.startsInCorner = false;
+                robotVars.setStartPose();
 
-                drive.follower.setStartingPose(Globals.constants.startPose);
+                drive.follower.setStartingPose(robotVars.startPose);
             } else if (gamepad2.dpadUpWasPressed()) {
-                Globals.startsInCorner = true;
-                Globals.constants.setStartPose(Globals.allianceColor, true);
+                robotVars.startsInCorner = true;
+                robotVars.setStartPose();
 
-                drive.follower.setStartingPose(Globals.constants.startPose);
+                drive.follower.setStartingPose(robotVars.startPose);
             }
 
-            telemetry.addData("TeleOp: ", (Globals.allianceColor == AllianceColor.Red ? "Red " : "Blue ") + (Globals.startsInCorner ? "Corner" : "Wall"));
+            telemetry.addData("TeleOp: ", (RobotVars.allianceColor == AllianceColor.Red ? "Red " : "Blue ") + (RobotVars.startsInCorner ? "Corner" : "Wall"));
             telemetry.update();
 
         }

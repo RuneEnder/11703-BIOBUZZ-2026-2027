@@ -15,6 +15,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.RobotConstants;
+import org.firstinspires.ftc.teamcode.RobotVars;
 import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 
 
@@ -24,7 +25,7 @@ public class Drivetrain {
 
     public final DcMotorEx leftFront, leftBack, rightBack, rightFront;
 
-    public Drivetrain(HardwareMap hardwareMapRef, RobotConstants robotConstants) {
+    public Drivetrain(HardwareMap hardwareMapRef, RobotVars robotVars) {
         hardwareMap = hardwareMapRef;
 
         leftFront = hardwareMap.get(DcMotorEx.class, "lf");
@@ -42,7 +43,7 @@ public class Drivetrain {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(robotConstants.startPose);
+        follower.setStartingPose(robotVars.startPose);
 
     }
 
