@@ -9,10 +9,10 @@ import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 public class RobotVars {
 
     public static Telemetry telemetry;
-    public static RobotConstants constants;
-    public static AllianceColor allianceColor = AllianceColor.None;
-    public static boolean startsInCorner = false;
-    public static Pose startPose = constants.startPoseRedWall;
+    public RobotConstants constants = new RobotConstants();
+    public AllianceColor allianceColor = AllianceColor.None;
+    public boolean startsInCorner = false;
+    public Pose startPose = constants.startPoseRedWall;
 
 
     public void setStartPose() {
@@ -30,11 +30,9 @@ public class RobotVars {
         isTeleOp = true;
         //imu.imuinit();
         RobotVars.telemetry = telemetry;
+
     }
 
-    public static void setAllianceColor(AllianceColor allianceColor) {
-        RobotVars.allianceColor = allianceColor;
-    }
 
 
 }

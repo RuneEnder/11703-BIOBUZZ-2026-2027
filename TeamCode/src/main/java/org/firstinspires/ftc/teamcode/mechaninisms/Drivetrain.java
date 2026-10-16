@@ -78,7 +78,7 @@ public class Drivetrain {
         // Get user values
         double x = left_stick_x;
         double y = left_stick_y;
-        double rot = right_stick_x;
+        double rot = 0 - right_stick_x;
 
         // Results after matrix multiplication
         double newX = (x * Math.cos(yaw)) - (y * Math.sin(yaw));
@@ -90,7 +90,7 @@ public class Drivetrain {
         double backLeftPower = newY - rot + newX;
         double backRightPower = newY + rot - newX;
 
-        setPowers(frontLeftPower , frontRightPower, backLeftPower,backRightPower);
+        setPowers(frontLeftPower, frontRightPower, backLeftPower,backRightPower);
 
     }
 
