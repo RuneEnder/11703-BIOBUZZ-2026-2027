@@ -39,8 +39,12 @@ public class Drivetrain {
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+
+        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
         follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(robotVars.startPose);

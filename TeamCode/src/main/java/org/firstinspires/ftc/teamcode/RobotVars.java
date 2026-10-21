@@ -15,6 +15,11 @@ public class RobotVars {
     public Pose startPose = constants.startPoseRedWall;
 
 
+    public Boolean isIntakeActive = false;
+    public Boolean isOuttakeActive = false;
+    public Boolean isTransferActive = false;
+    public Boolean isStopperDown = false;
+
     public void setStartPose() {
         if (allianceColor == AllianceColor.Blue && startsInCorner) startPose = constants.startPoseBlueCorner;
         if (allianceColor == AllianceColor.Blue && !startsInCorner) startPose = constants.startPoseBlueWall;
