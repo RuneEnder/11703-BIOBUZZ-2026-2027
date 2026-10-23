@@ -11,10 +11,12 @@ public class RobotConstants {
     public Pose startPoseBlueWall = new Pose(0, 8, Math.toRadians(90));
     public Pose startPoseBlueCorner = new Pose(0, 0, Math.toRadians(-36));
 
-    public double intakeMotorSpeed = 0.4;
-    public double outtakeMotorSpeed = 1000;
-    public double transferMotorSpeed = 0.4;
-    public double stopperDownPosition = 0.4;
-    public double stopperUpPosition = 0.6;
+    public double intakeMotorSpeed = 1;
+    public double outtakeMotorSpeed = 1200;
+    public double transferMotorSpeed = 0.55;
+    public double stopperDownPosition = 0.42;
+    public double stopperUpPosition = 0.47;
+
+    // higher number -> more down
 
 }

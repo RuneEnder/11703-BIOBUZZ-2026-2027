@@ -23,7 +23,7 @@ public class Intake {
 
 
     public void runIntake_ToggleMode(boolean intakeButton) {
-        if (intakeButton) {
+        if (intakeButton && !robotVars.isStopperDown) {
             robotVars.isIntakeActive = !robotVars.isIntakeActive;
         }
 

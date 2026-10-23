@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -10,6 +11,7 @@ import org.firstinspires.ftc.teamcode.RobotVars;
 import org.firstinspires.ftc.teamcode.mechaninisms.Drivetrain;
 import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 
+@Disabled
 @TeleOp(name = "Robot Dummy 1", group = "Linear OpMode")
 public class RobotDummy1 extends LinearOpMode {
 

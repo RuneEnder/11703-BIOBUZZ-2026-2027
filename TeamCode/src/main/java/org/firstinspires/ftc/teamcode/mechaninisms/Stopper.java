@@ -24,6 +24,9 @@ public class Stopper {
 
             if (robotVars.isStopperDown) {
                 stopperServo.setPosition(robotVars.constants.stopperDownPosition);
+
+                robotVars.isIntakeActive = false;
+                robotVars.isTransferActive = false;
             } else {
                 stopperServo.setPosition(robotVars.constants.stopperUpPosition);
             }
