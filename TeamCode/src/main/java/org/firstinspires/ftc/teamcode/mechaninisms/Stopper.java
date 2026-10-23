@@ -1,14 +1,9 @@
 package org.firstinspires.ftc.teamcode.mechaninisms;
 
-import com.pedropathing.follower.Follower;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.RobotVars;
-import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 
 public class Stopper {
 
@@ -23,7 +18,7 @@ public class Stopper {
     }
 
 
-    public void runStopper(boolean stopperButton) {
+    public void runStopper_ToggleMode(boolean stopperButton) {
         if (stopperButton) {
             robotVars.isStopperDown = !robotVars.isStopperDown;
 

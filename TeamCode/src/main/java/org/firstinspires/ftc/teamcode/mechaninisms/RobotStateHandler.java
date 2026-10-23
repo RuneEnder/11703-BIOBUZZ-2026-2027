@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.mechaninisms;
 
-import com.bylazar.gamepad.GamepadManager;
-import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.RobotVars;
@@ -62,10 +60,10 @@ public class RobotStateHandler {
 
 
     public static void RunStateMachine(GamepadController gamepad) {
-        intake.runIntake(gamepad.toggleIntakeButton());
-        outtake.runOuttake(gamepad.toggleOuttakeButton());
-//        stopper.runStopper(gamepad.toggleStopperButton());
-        transfer.runTransfer();
+        intake.runIntake_ToggleMode(gamepad.toggleIntakeButton());
+        outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton());
+//        stopper.runStopper_ToggleMode(gamepad.toggleStopperButton());
+        transfer.runTransfer_ToggleMode();
 
     }
 }

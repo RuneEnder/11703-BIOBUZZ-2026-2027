@@ -1,13 +1,11 @@
 package org.firstinspires.ftc.teamcode.mechaninisms;
 
-import com.pedropathing.follower.Follower;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.RobotVars;
-import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 
 public class Transfer {
 
@@ -24,7 +22,7 @@ public class Transfer {
     }
 
 
-    public void runTransfer() {
+    public void runTransfer_ToggleMode() {
         robotVars.isTransferActive = robotVars.isIntakeActive;
 
         if (robotVars.isTransferActive) {
