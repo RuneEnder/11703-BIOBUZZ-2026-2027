@@ -1,14 +1,13 @@
-package org.firstinspires.ftc.teamcode.opmodes.teleop;
+package org.firstinspires.ftc.teamcode.pedroPathing.auto;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.RobotVars;
 import org.firstinspires.ftc.teamcode.mechaninisms.RobotStateHandler;
-import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 import org.firstinspires.ftc.teamcode.utils.commands.GamepadController;
 
-@TeleOp(name = "Zero Pollen Auto", group = "Linear OpMode")
+@Autonomous(name = "Zero Pollen Auto", group = "Linear OpMode")
 public class ZeroPollenAuto extends LinearOpMode {
 
     @Override
