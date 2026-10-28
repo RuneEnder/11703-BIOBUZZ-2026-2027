@@ -23,10 +23,13 @@ public class Drivetrain {
     private HardwareMap hardwareMap;
     public Follower follower;
 
+    RobotStateHandler robotStateHandler;
+
     public final DcMotorEx leftFront, leftBack, rightBack, rightFront;
 
-    public Drivetrain(HardwareMap hardwareMapRef, RobotVars robotVars) {
+    public Drivetrain(HardwareMap hardwareMapRef, RobotVars robotVars, RobotStateHandler robotStateHandlerRef) {
         hardwareMap = hardwareMapRef;
+        robotStateHandler = robotStateHandlerRef;
 
         leftFront = hardwareMap.get(DcMotorEx.class, "lf");
         rightFront = hardwareMap.get(DcMotorEx.class, "rf");
@@ -73,7 +76,7 @@ public class Drivetrain {
 
 
 
-    public void runFieldCentricDrive(float left_stick_x, float left_stick_y, float right_stick_x) {
+    public void runFieldCentricDrive(float left_stick_x, float left_stick_y, float right_stick_x, boolean faceHiveButton) {
         follower.update();
 
         // Figure out the follower
@@ -87,6 +90,11 @@ public class Drivetrain {
         // Results after matrix multiplication
         double newX = (x * Math.cos(yaw)) - (y * Math.sin(yaw));
         double newY = (y * Math.cos(yaw)) + (x * Math.sin(yaw));
+
+
+        if (faceHiveButton) {
+            rot = 0 - RobotStateHandler.limelight.directionToHive();
+        }
 
         // Calculate powers
         double frontLeftPower = newY - rot - newX;

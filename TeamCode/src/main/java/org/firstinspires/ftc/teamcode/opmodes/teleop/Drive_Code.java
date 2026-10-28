@@ -45,6 +45,7 @@ public class Drive_Code extends LinearOpMode {
 
         waitForStart();
 
+        robotStateHandler.Init();;
 
         //-----------------------------------------------------------------
         // Start ↑ and Primary Loop ↓
@@ -71,10 +72,10 @@ public class Drive_Code extends LinearOpMode {
 
             telemetry.addData("TeleOp: ", (robotVars.allianceColor == AllianceColor.Red ? "Red " : "Blue ") + (robotVars.startsInCorner ? "Corner" : "Wall"));
 //            telemetry.addData("Start Pose: ", robotVars.startPose);
-//            telemetry.addData("Left Front", RobotStateHandler.drive.leftFront.getCurrentPosition());
-//            telemetry.addData("Left Rear: ", RobotStateHandler.drive.leftBack.getCurrentPosition());
-//            telemetry.addData("Right Front", RobotStateHandler.drive.rightFront.getCurrentPosition());
-//            telemetry.addData("Right Rear: ", RobotStateHandler.drive.rightBack.getCurrentPosition());
+            telemetry.addData("Left Front", RobotStateHandler.drive.leftFront.getCurrentPosition());
+            telemetry.addData("Left Rear: ", RobotStateHandler.drive.leftBack.getCurrentPosition());
+            telemetry.addData("Right Front", RobotStateHandler.drive.rightFront.getCurrentPosition());
+            telemetry.addData("Right Rear: ", RobotStateHandler.drive.rightBack.getCurrentPosition());
 //            telemetry.addData("Follower: ", RobotStateHandler.drive.follower.getPose().getX() + " " + RobotStateHandler.drive.follower.getPose().getY() + ", " + Math.toDegrees(RobotStateHandler.drive.follower.getPose().getHeading()));
             telemetry.addData("is Outtake Active: ", robotVars.isOuttakeActive);
             telemetry.addData("is Intake & Transfer Active: ", robotVars.isIntakeActive + " " + robotVars.isTransferActive);

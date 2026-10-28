@@ -13,8 +13,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 
 
 public class Limelight {
-    Limelight3A limelight;
-    public Servo cameraArm;
+    Limelight3A limelight3a;
+//    public Servo cameraArm;
 
     public boolean validResult = false;
     public int pipeline = 0;
@@ -34,15 +34,15 @@ public class Limelight {
 
     public Limelight(HardwareMap hardwareMapRef) {
 
-        limelight = hardwareMapRef.get(Limelight3A.class, "limelight");
-        limelight.setPollRateHz(100); // This sets how often we ask Limelight for data (100 times per second)
+        limelight3a = hardwareMapRef.get(Limelight3A.class, "limelight");
+        limelight3a.setPollRateHz(100); // This sets how often we ask Limelight for data (100 times per second)
 
-        cameraArm = hardwareMapRef.get(Servo.class, "camArm");
+//        cameraArm = hardwareMapRef.get(Servo.class, "camArm");
     }
 
 
     public void startScript() {
-        limelight.start(); // This tells Limelight to start looking!
+        limelight3a.start(); // This tells Limelight to start looking!
         switchPipeline(0);
     }
 
@@ -50,10 +50,22 @@ public class Limelight {
 
     public void switchPipeline(int newPipeline) {
         pipeline = newPipeline;
-        limelight.pipelineSwitch(pipeline);
+        limelight3a.pipelineSwitch(pipeline);
     }
 
 
+    public int directionToHive() {
+        LLResult result = limelight3a.getLatestResult();
+
+        double tx = 0;
+
+
+        if (result != null && result.isValid()) {
+            tx = result.getTx(); // How far left or right the target is (degrees)
+        }
+
+        return (int) Math.signum(tx);
+    }
 
     public void updateLimelightLocalizer() {
 
@@ -66,7 +78,7 @@ public class Limelight {
         }*/
 
         // Update camPose
-        LLResult result = limelight.getLatestResult();
+        LLResult result = limelight3a.getLatestResult();
         validResult = result != null && result.isValid();
         if (validResult) {
             Pose3D rawPose = result.getBotpose();
@@ -134,7 +146,7 @@ public class Limelight {
 
     public void moveCameraArm(double angle_Degrees) {
         currentCameraArmAngle = angle_Degrees;
-        cameraArm.setPosition(angleToTicksSlope * angle_Degrees + angleToTicksY_Int);
+//        cameraArm.setPosition(angleToTicksSlope * angle_Degrees + angleToTicksY_Int);
     }
 
 

@@ -15,21 +15,26 @@ public class RobotStateHandler {
     public static Outtake outtake;
     public static Stopper stopper;
     public static Transfer transfer;
+    public static Limelight limelight;
 
     public RobotStateHandler(HardwareMap hardwareMapRef, RobotVars robotVarsRef) {
         hardwareMap = hardwareMapRef;
         robotVars = robotVarsRef;
 
-        drive = new Drivetrain(hardwareMap, robotVars);
+        drive = new Drivetrain(hardwareMap, robotVars, this);
         intake = new Intake(hardwareMap, robotVars);
         outtake = new Outtake(hardwareMap, robotVars);
         stopper = new Stopper(hardwareMap, robotVars);
         transfer = new Transfer(hardwareMap, robotVars);
+        limelight = new Limelight(hardwareMap);
 
     }
 
 
 
+    public void Init() {
+        limelight.startScript();
+    }
 
     public void RunMenu(GamepadController gamepadController) {
         if (gamepadController.setTeamToBlue()) {
