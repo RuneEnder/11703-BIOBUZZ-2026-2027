@@ -51,10 +51,19 @@ public class RobotDummy1 extends LinearOpMode {
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        turretMotor = hardwareMap.get(DcMotorEx.class, "turret");
+        turretMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        turretMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
 
-        double speed = 0.2;
+
+
+
+
+
+
+        double speed = 0.3;
 
 
 
@@ -65,9 +74,6 @@ public class RobotDummy1 extends LinearOpMode {
 
         waitForStart();
 
-        turretMotor = hardwareMap.get(DcMotorEx.class, "turret");
-        turretMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        turretMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
         limelight.startScript();
@@ -85,20 +91,24 @@ public class RobotDummy1 extends LinearOpMode {
 
             turretMotor.setPower(speed * limelight.directionToHive());
 
+            if (gamepad1.dpadDownWasPressed()) speed -= 0.05;
+            if (gamepad1.dpadUpWasPressed()) speed += 0.05;
 
+            telemetry.addData("tx: ", limelight.getTX());
+            telemetry.addData("Direction to Hive: ", limelight.directionToHive());
+            telemetry.addData("Speed: ", speed);
+            telemetry.addData("", "");
 
-            telemetry.addData("Left Front", RobotStateHandler.drive.leftFront.getCurrentPosition());
-            telemetry.addData("Left Rear: ", RobotStateHandler.drive.leftBack.getCurrentPosition());
-            telemetry.addData("Right Front", RobotStateHandler.drive.rightFront.getCurrentPosition());
-            telemetry.addData("Right Rear: ", RobotStateHandler.drive.rightBack.getCurrentPosition());
+            telemetry.addData("Left Front", leftFront.getCurrentPosition());
+            telemetry.addData("Left Rear: ", leftBack.getCurrentPosition());
+            telemetry.addData("Right Front", rightFront.getCurrentPosition());
+            telemetry.addData("Right Rear: ", rightBack.getCurrentPosition());
 
             telemetry.update();
 
         }
 
 
-        // Emergency shut down
-        RobotStateHandler.drive.setPowers(0, 0, 0, 0);
 
 
     }

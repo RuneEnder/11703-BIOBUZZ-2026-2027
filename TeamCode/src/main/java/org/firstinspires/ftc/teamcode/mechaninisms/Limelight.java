@@ -54,7 +54,7 @@ public class Limelight {
     }
 
 
-    public int directionToHive() {
+    public double directionToHive() {
         LLResult result = limelight3a.getLatestResult();
 
         double tx = 0;
@@ -64,7 +64,21 @@ public class Limelight {
             tx = result.getTx(); // How far left or right the target is (degrees)
         }
 
-        return (int) Math.signum(tx);
+        return (0.25 * Math.signum(tx)) + (tx / 15); // The range is approx [-15,15], the 0.25 is arbitrary
+    }
+
+
+    public double getTX() {
+        LLResult result = limelight3a.getLatestResult();
+
+        double tx = 0;
+
+
+        if (result != null && result.isValid()) {
+            tx = result.getTx(); // How far left or right the target is (degrees)
+        }
+
+        return tx;
     }
 
     public void updateLimelightLocalizer() {
