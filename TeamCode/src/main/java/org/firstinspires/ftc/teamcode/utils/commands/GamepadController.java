@@ -19,6 +19,6 @@ public class GamepadController {
     public boolean setTeamToRed() { return gamepad1.x; }
     public boolean toggleIntakeButton() { return gamepad1.rightBumperWasPressed(); }
     public boolean toggleOuttakeButton() { return gamepad1.leftBumperWasPressed(); }
-    public boolean shootButton() { return gamepad1.aWasPressed(); }
+    public boolean shootButton() { return gamepad1.a; }
 
 }
