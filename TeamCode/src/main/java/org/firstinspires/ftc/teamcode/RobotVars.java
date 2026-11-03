@@ -4,6 +4,9 @@ package org.firstinspires.ftc.teamcode;
 import com.pedropathing.geometry.Pose;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
 import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 
 public class RobotVars {
@@ -19,6 +22,10 @@ public class RobotVars {
     public Boolean isOuttakeActive = false;
     public Boolean isTransferActive = false;
     public Boolean isStopperDown = false;
+
+    public Pose2D camPose = new Pose2D(DistanceUnit.INCH, 0,0, AngleUnit.DEGREES, 90);
+    public Pose2D robotPose = new Pose2D(DistanceUnit.INCH, 0,0, AngleUnit.DEGREES, 90);
+
 
     public void setStartPose() {
         if (allianceColor == AllianceColor.Blue && startsInCorner) startPose = constants.startPoseBlueCorner;

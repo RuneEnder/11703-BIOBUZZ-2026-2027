@@ -12,11 +12,10 @@ public class RobotConstants {
     public Pose startPoseBlueCorner = new Pose(0, 0, Math.toRadians(-36));
 
     public double intakeMotorSpeed = 1;
-    public double outtakeMotorSpeed = 1200;
+    public double outtakeMotorSpeed = 1175;
     public double transferMotorSpeed = 0.55;
     public double stopperDownPosition = 0.42;
     public double stopperUpPosition = 0.47;
-
-    // higher number -> more down
+    public double hiveCentricRotationSpeed = 0.496;
 
 }

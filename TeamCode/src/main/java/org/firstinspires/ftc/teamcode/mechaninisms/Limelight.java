@@ -10,6 +10,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
+import org.firstinspires.ftc.teamcode.RobotVars;
 
 
 public class Limelight {
@@ -19,20 +20,14 @@ public class Limelight {
     public boolean validResult = false;
     public int pipeline = 0;
 
-    double angleToTicksSlope = -0.000590108;
-    double angleToTicksY_Int = 0.189909;
-    public double currentCameraArmAngle = 0;
-
-    double pivotToRobotOffsetX = 0;
-    double pivotToRobotOffsetY = 0;
-
-    public Pose2D camPose = new Pose2D(DistanceUnit.INCH, 0,0, AngleUnit.DEGREES, 90);
-    public Pose2D robotPose = new Pose2D(DistanceUnit.INCH, 0,0, AngleUnit.DEGREES, 90);
-    public Pose2D goalPos = new Pose2D(DistanceUnit.INCH, 72,72, AngleUnit.DEGREES, 0);
 
 
 
-    public Limelight(HardwareMap hardwareMapRef) {
+    private final RobotVars robotVars;
+
+
+    public Limelight(HardwareMap hardwareMapRef, RobotVars robotVarsRef) {
+        robotVars = robotVarsRef;
 
         limelight3a = hardwareMapRef.get(Limelight3A.class, "limelight");
         limelight3a.setPollRateHz(100); // This sets how often we ask Limelight for data (100 times per second)
@@ -64,7 +59,13 @@ public class Limelight {
             tx = result.getTx(); // How far left or right the target is (degrees)
         }
 
-        return (0.25 * Math.signum(tx)) + (tx / 15); // The range is approx [-15,15], the 0.25 is arbitrary
+        if (Math.abs(tx) <= 2.5) {
+            return 0;
+        }
+
+//        return robotVars.constants.hiveCentricRotationSpeed * ((0.25 * Math.signum(tx)) + (tx / 15)); // The range is approx [-15,15], the 0.25 is arbitrary
+        return robotVars.constants.hiveCentricRotationSpeed * ( (Math.atan(0.264 * tx) * 2 / Math.PI) + (0.2 * Math.signum(tx))); // The range is approx [-15,15]
+
     }
 
 
@@ -80,6 +81,8 @@ public class Limelight {
 
         return tx;
     }
+
+
 
     public void updateLimelightLocalizer() {
 
@@ -103,7 +106,7 @@ public class Limelight {
                 double y = 0 - (rawPose.getPosition().x * 39.37007874) + 72;
                 double rot = rawPose.getOrientation().getYaw() - 90;
 
-                camPose = new Pose2D(DistanceUnit.INCH, x,y,AngleUnit.DEGREES, rot);
+                robotVars.camPose = new Pose2D(DistanceUnit.INCH, x,y,AngleUnit.DEGREES, rot);
             }
 
 
@@ -158,10 +161,6 @@ public class Limelight {
 
 
 
-    public void moveCameraArm(double angle_Degrees) {
-        currentCameraArmAngle = angle_Degrees;
-//        cameraArm.setPosition(angleToTicksSlope * angle_Degrees + angleToTicksY_Int);
-    }
 
 
 }

@@ -74,6 +74,25 @@ public class Drivetrain {
     }
 
 
+    public void runHiveCentricDriveCode(float left_stick_x, float left_stick_y) {
+
+        // Get user values
+        double strafe = left_stick_x;
+        double drive = left_stick_y;
+        double rotation = RobotStateHandler.limelight.directionToHive();
+
+        // Calculate powers
+        double frontLeftPower = drive - rotation - strafe;
+        double frontRightPower = drive + rotation + strafe;
+        double backLeftPower = drive - rotation + strafe;
+        double backRightPower = drive + rotation - strafe;
+
+        // Send calculated power to wheels
+        setPowers(frontLeftPower , frontRightPower, backLeftPower,backRightPower );
+    }
+
+
+
 
 
     public void runFieldCentricDrive(float left_stick_x, float left_stick_y, float right_stick_x, boolean faceHiveButton) {

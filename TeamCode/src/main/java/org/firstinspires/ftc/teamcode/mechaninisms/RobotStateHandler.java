@@ -26,7 +26,7 @@ public class RobotStateHandler {
         outtake = new Outtake(hardwareMap, robotVars);
         stopper = new Stopper(hardwareMap, robotVars);
         transfer = new Transfer(hardwareMap, robotVars);
-        limelight = new Limelight(hardwareMap);
+        limelight = new Limelight(hardwareMap, robotVars);
 
     }
 
