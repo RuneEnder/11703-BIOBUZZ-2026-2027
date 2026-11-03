@@ -27,8 +27,7 @@ public class Outtake {
             robotVars.isOuttakeActive = !robotVars.isOuttakeActive;
         }
 
-
-        if (robotVars.isOuttakeActive) {
+        if (robotVars.isOuttakeActive || robotVars.isShooting) {
             outtakeMotor.setVelocity(robotVars.constants.outtakeMotorSpeed);
         } else {
             outtakeMotor.setVelocity(0);
