@@ -26,15 +26,10 @@ public class Intake {
             robotVars.isIntakeActive = !robotVars.isIntakeActive;
         }
 
-        if (robotVars.isShooting) {
+        if (robotVars.isShooting || robotVars.isIntakeActive) {
             intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
-
         } else {
-            if (robotVars.isIntakeActive) {
-                intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
-            } else {
-                intakeMotor.setPower(0);
-            }
+            intakeMotor.setPower(0);
         }
     }
 

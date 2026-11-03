@@ -25,14 +25,10 @@ public class Transfer {
     public void runTransfer_ToggleMode() {
         robotVars.isTransferActive = robotVars.isIntakeActive;
 
-        if (robotVars.isShooting) {
+        if (robotVars.isShooting || robotVars.isTransferActive) {
             transferMotor.setPower(robotVars.constants.transferMotorSpeed);
         } else {
-            if (robotVars.isTransferActive) {
-                transferMotor.setPower(robotVars.constants.transferMotorSpeed);
-            } else {
-                transferMotor.setPower(0);
-            }
+            transferMotor.setPower(0);
         }
     }
 
