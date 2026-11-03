@@ -21,17 +21,20 @@ public class Intake {
         intakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
-
     public void runIntake_ToggleMode(boolean intakeButton) {
         if (intakeButton && !robotVars.isStopperDown) {
             robotVars.isIntakeActive = !robotVars.isIntakeActive;
         }
 
-
-        if (robotVars.isIntakeActive) {
+        if (robotVars.isShooting) {
             intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
+
         } else {
-            intakeMotor.setPower(0);
+            if (robotVars.isIntakeActive) {
+                intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
+            } else {
+                intakeMotor.setPower(0);
+            }
         }
     }
 

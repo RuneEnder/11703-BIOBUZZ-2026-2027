@@ -14,7 +14,7 @@ public class RobotVars {
     public boolean startsInCorner = false;
     public Pose startPose = constants.startPoseRedWall;
 
-
+    public Boolean isShooting = false;
     public Boolean isIntakeActive = false;
     public Boolean isOuttakeActive = false;
     public Boolean isTransferActive = false;

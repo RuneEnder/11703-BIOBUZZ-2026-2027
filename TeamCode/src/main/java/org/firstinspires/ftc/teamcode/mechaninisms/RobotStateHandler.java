@@ -24,7 +24,7 @@ public class RobotStateHandler {
         drive = new Drivetrain(hardwareMap, robotVars, this);
         intake = new Intake(hardwareMap, robotVars);
         outtake = new Outtake(hardwareMap, robotVars);
-        stopper = new Stopper(hardwareMap, robotVars);
+        stopper = new Stopper(hardwareMap, robotVars, outtake);
         transfer = new Transfer(hardwareMap, robotVars);
         limelight = new Limelight(hardwareMap);
 
@@ -67,7 +67,7 @@ public class RobotStateHandler {
     public static void RunStateMachine(GamepadController gamepad) {
         intake.runIntake_ToggleMode(gamepad.toggleIntakeButton());
         outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton());
-        stopper.runStopper_ToggleMode(gamepad.toggleStopperButton());
+        stopper.runStopper_ToggleMode(gamepad.shootButton());
         transfer.runTransfer_ToggleMode();
 
     }

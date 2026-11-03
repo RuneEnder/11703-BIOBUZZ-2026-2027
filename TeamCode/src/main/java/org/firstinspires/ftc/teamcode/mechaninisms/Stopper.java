@@ -4,32 +4,35 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.RobotVars;
+import org.firstinspires.ftc.teamcode.mechaninisms.Outtake;
 
 public class Stopper {
 
     public final Servo stopperServo;
 
     private final RobotVars robotVars;
+    private final Outtake outtake;
 
-    public Stopper(HardwareMap hardwareMap, RobotVars robotVarsRef) {
+    public Stopper(HardwareMap hardwareMap, RobotVars robotVarsRef, Outtake outtakeRef) {
         robotVars = robotVarsRef;
+        outtake = outtakeRef;
 
         stopperServo = hardwareMap.get(Servo.class, "stopper");
     }
 
 
-    public void runStopper_ToggleMode(boolean stopperButton) {
-        if (stopperButton) {
-            robotVars.isStopperDown = !robotVars.isStopperDown;
+    public void runStopper_ToggleMode(boolean shootButton) {
+        if (shootButton && outtake.outtakeMotor.getVelocity() > 1000) {
+            robotVars.isStopperDown = false;
 
-            if (robotVars.isStopperDown) {
-                stopperServo.setPosition(robotVars.constants.stopperDownPosition);
+            stopperServo.setPosition(robotVars.constants.stopperDownPosition);
 
-                robotVars.isIntakeActive = false;
-                robotVars.isTransferActive = false;
-            } else {
-                stopperServo.setPosition(robotVars.constants.stopperUpPosition);
-            }
+            robotVars.isShooting = true;
+        } else {
+            robotVars.isStopperDown = false;
+
+            stopperServo.setPosition(robotVars.constants.stopperUpPosition);
+            robotVars.isShooting  = false;
         }
 
 
