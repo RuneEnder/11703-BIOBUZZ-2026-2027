@@ -22,7 +22,7 @@ public class FourPollenAuto extends OpMode {
     private Timer pathTimer, actionTimer, opmodeTimer;
 
     public int pathStateA = 0; // -1 is default, useless. 0 is initial
-
+    public int shootingDelay = 1;
 
 
     // Poses used to calculate paths
@@ -99,6 +99,11 @@ public class FourPollenAuto extends OpMode {
 
                 robotVars.isStopperDown = false;
 
+                if (pathTimer.getElapsedTimeSeconds() >= shootingDelay) {
+                    setPathStateA(3);
+                }
+
+
             case 3:
                 robotVars.isStopperDown = true;
                 robotVars.isIntakeActive = false;
@@ -155,6 +160,7 @@ public class FourPollenAuto extends OpMode {
 
         autonomousPathUpdateA();
 
+        //run smth intake. run smth outtake. run smth transfer. run smth stopper
 
         telemetry.addData("x", follower.getPose().getX());
         telemetry.addData("y", follower.getPose().getY());
