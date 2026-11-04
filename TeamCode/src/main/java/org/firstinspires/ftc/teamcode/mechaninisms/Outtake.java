@@ -28,7 +28,7 @@ public class Outtake {
         }
 
         if (robotVars.isOuttakeActive || robotVars.isShooting) {
-            outtakeMotor.setVelocity(robotVars.constants.outtakeMotorSpeed);
+            outtakeMotor.setVelocity(robotVars.constants.outtakeMotorSpeed * (toggleReverseOuttake ? -0.4 : 1));
         } else {
             outtakeMotor.setVelocity(0);
         }

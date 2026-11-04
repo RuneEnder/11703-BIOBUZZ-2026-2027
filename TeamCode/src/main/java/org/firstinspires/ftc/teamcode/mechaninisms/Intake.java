@@ -28,7 +28,7 @@ public class Intake {
         }
 
         if (robotVars.isShooting || robotVars.isIntakeActive) {
-            intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
+            intakeMotor.setPower(robotVars.constants.intakeMotorSpeed * (toggleReverseIntake ? -1: 1));
         } else {
             intakeMotor.setPower(0);
         }

@@ -28,7 +28,7 @@ public class Transfer {
         }
 
         if (robotVars.isShooting || robotVars.isTransferActive) {
-            transferMotor.setPower(robotVars.constants.transferMotorSpeed);
+            transferMotor.setPower(robotVars.constants.transferMotorSpeed * (toggleReverseIntake ? -1 : 1));
         } else {
             transferMotor.setPower(0);
         }
