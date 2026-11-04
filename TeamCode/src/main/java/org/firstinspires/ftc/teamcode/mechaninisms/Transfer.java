@@ -22,11 +22,13 @@ public class Transfer {
     }
 
 
-    public void runTransfer_ToggleMode() {
-        robotVars.isTransferActive = robotVars.isIntakeActive;
+    public void runTransfer_ToggleMode(boolean transferButton, boolean toggleReverseIntake) {
+        if (transferButton) {
+            robotVars.isTransferActive = !robotVars.isTransferActive;
+        }
 
         if (robotVars.isTransferActive) {
-            transferMotor.setPower(robotVars.constants.transferMotorSpeed);
+            transferMotor.setPower(robotVars.constants.transferMotorSpeed * (toggleReverseIntake ? -1 : 1));
         } else {
             transferMotor.setPower(0);
         }

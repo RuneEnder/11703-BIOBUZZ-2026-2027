@@ -22,14 +22,13 @@ public class Intake {
     }
 
 
-    public void runIntake_ToggleMode(boolean intakeButton) {
+    public void runIntake_ToggleMode(boolean intakeButton, boolean toggleReverseIntake) {
         if (intakeButton && !robotVars.isStopperDown) {
             robotVars.isIntakeActive = !robotVars.isIntakeActive;
         }
 
-
         if (robotVars.isIntakeActive) {
-            intakeMotor.setPower(robotVars.constants.intakeMotorSpeed);
+            intakeMotor.setPower(robotVars.constants.intakeMotorSpeed * (toggleReverseIntake ? -1 : 1));
         } else {
             intakeMotor.setPower(0);
         }

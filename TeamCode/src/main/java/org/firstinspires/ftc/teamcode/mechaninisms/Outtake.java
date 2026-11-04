@@ -22,14 +22,14 @@ public class Outtake {
     }
 
 
-    public void runOuttake_ToggleMode(boolean outtakeButton) {
+    public void runOuttake_ToggleMode(boolean outtakeButton, boolean toggleReverseOuttake) {
         if (outtakeButton) {
             robotVars.isOuttakeActive = !robotVars.isOuttakeActive;
         }
 
 
         if (robotVars.isOuttakeActive) {
-            outtakeMotor.setVelocity(robotVars.constants.outtakeMotorSpeed);
+            outtakeMotor.setVelocity(robotVars.constants.outtakeMotorSpeed * (toggleReverseOuttake ? -0.4 : 1));
         } else {
             outtakeMotor.setVelocity(0);
         }
