@@ -54,16 +54,15 @@ public class Drive_Code extends LinearOpMode {
 
         // Primary loop
         while (opModeIsActive() && !isStopRequested()) {
-//            RobotStateHandler.drive.runDriveCode(
-//                    gamepad1.left_stick_x,
-//                    gamepad1.left_stick_y,
-//                    gamepad1.right_stick_x
-//            );
 
-            RobotStateHandler.drive.runHiveCentricDriveCode(
+
+            RobotStateHandler.drive.runDriveCode(
                     gamepad1.left_stick_x,
-                    gamepad1.left_stick_y
+                    gamepad1.left_stick_y,
+                    gamepad1.right_stick_x,
+                    gamepadController.hiveCentricDriveButton()
             );
+
 
 
 

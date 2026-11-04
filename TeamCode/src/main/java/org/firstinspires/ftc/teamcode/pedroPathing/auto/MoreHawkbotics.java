@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.pedroPathing;//package org.firstinspires.ftc.teamcode.pedroPathing; // make sure this aligns with class location
+package org.firstinspires.ftc.teamcode.pedroPathing.auto;//package org.firstinspires.ftc.teamcode.pedroPathing; // make sure this aligns with class location
 //
 //import static org.firstinspires.ftc.teamcode.core.constants.*;
 //
