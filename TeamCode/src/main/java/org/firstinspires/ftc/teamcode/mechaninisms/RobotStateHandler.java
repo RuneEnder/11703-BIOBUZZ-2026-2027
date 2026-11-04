@@ -26,7 +26,7 @@ public class RobotStateHandler {
         outtake = new Outtake(hardwareMap, robotVars);
         stopper = new Stopper(hardwareMap, robotVars, outtake);
         transfer = new Transfer(hardwareMap, robotVars);
-        limelight = new Limelight(hardwareMap);
+        limelight = new Limelight(hardwareMap, robotVars);
 
     }
 
@@ -37,26 +37,27 @@ public class RobotStateHandler {
     }
 
     public void RunMenu(GamepadController gamepadController) {
+
         if (gamepadController.setTeamToBlue()) {
             robotVars.allianceColor = AllianceColor.Blue;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         } else if (gamepadController.setTeamToRed()) {
             robotVars.allianceColor = AllianceColor.Red;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         }
 
         if (gamepadController.setStartPoseToWall()) {
             robotVars.startsInCorner = false;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         } else if (gamepadController.setStartPoseToCorner()) {
             robotVars.startsInCorner = true;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         }
@@ -65,10 +66,10 @@ public class RobotStateHandler {
 
 
     public static void RunStateMachine(GamepadController gamepad) {
-        intake.runIntake_ToggleMode(gamepad.toggleIntakeButton());
-        outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton());
-        stopper.runStopper_ToggleMode(gamepad.shootButton());
-        transfer.runTransfer_ToggleMode();
+        intake.runIntake_ToggleMode(gamepad.toggleIntakeButton(), gamepad.toggleReverseIntakeButton());
+        outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton(), gamepad.toggleReverseOuttakeButton());
+        stopper.runStopper_ToggleMode(gamepad.toggleStopperButton());
+        transfer.runTransfer_ToggleMode(gamepad.toggleTransferButton(), gamepad.toggleReverseIntakeButton());
 
     }
 }

@@ -22,7 +22,7 @@ public class Outtake {
     }
 
 
-    public void runOuttake_ToggleMode(boolean outtakeButton) {
+    public void runOuttake_ToggleMode(boolean outtakeButton, boolean toggleReverseOuttake) {
         if (outtakeButton) {
             robotVars.isOuttakeActive = !robotVars.isOuttakeActive;
         }

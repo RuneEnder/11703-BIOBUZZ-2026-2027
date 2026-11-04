@@ -21,7 +21,8 @@ public class Intake {
         intakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
-    public void runIntake_ToggleMode(boolean intakeButton) {
+
+    public void runIntake_ToggleMode(boolean intakeButton, boolean toggleReverseIntake) {
         if (intakeButton && !robotVars.isStopperDown) {
             robotVars.isIntakeActive = !robotVars.isIntakeActive;
         }

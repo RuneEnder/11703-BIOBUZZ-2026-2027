@@ -47,7 +47,7 @@ public class ZeroPollenAuto extends LinearOpMode {
             }
 
             if (((System.nanoTime() - initTime) * Math.pow(10,-9)) < duration) {
-                RobotStateHandler.drive.runDriveCode(
+                RobotStateHandler.drive.runRobotCentricDriveCode(
                         0,
                         -0.9f,
                         0
@@ -55,7 +55,7 @@ public class ZeroPollenAuto extends LinearOpMode {
             } else {
                 RobotStateHandler.drive.setPowers(0, 0, 0, 0);
 
-                RobotStateHandler.drive.runDriveCode(
+                RobotStateHandler.drive.runRobotCentricDriveCode(
                         0,
                         0,
                         0
