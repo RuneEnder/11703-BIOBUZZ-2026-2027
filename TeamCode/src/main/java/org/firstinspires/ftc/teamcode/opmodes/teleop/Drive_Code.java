@@ -30,7 +30,7 @@ public class Drive_Code extends LinearOpMode {
 
         while (!opModeIsActive()) {
 
-//            robotStateHandler.RunMenu(robotVars, drive, gamepadController);
+            robotStateHandler.RunMenu(gamepadController);
 
             telemetry.addData("TeleOp: ", (robotVars.allianceColor == AllianceColor.Red ? "Red " : "Blue ") + (robotVars.startsInCorner ? "Corner" : "Wall"));
 

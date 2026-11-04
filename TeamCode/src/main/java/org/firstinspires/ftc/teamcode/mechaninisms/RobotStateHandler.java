@@ -37,26 +37,27 @@ public class RobotStateHandler {
     }
 
     public void RunMenu(GamepadController gamepadController) {
+
         if (gamepadController.setTeamToBlue()) {
             robotVars.allianceColor = AllianceColor.Blue;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         } else if (gamepadController.setTeamToRed()) {
             robotVars.allianceColor = AllianceColor.Red;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         }
 
         if (gamepadController.setStartPoseToWall()) {
             robotVars.startsInCorner = false;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         } else if (gamepadController.setStartPoseToCorner()) {
             robotVars.startsInCorner = true;
-            robotVars.setStartPose();
+            robotVars.setInitPoses();
 
             drive.follower.setStartingPose(robotVars.startPose);
         }

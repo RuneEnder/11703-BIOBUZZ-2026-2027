@@ -2,14 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.pedropathing.geometry.Pose;
 
-import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
-
 public class RobotConstants {
 
-    public Pose startPoseRedWall = new Pose(0, 8, Math.toRadians(90));
-    public Pose startPoseRedCorner = new Pose(0, 0, Math.toRadians(216));
-    public Pose startPoseBlueWall = new Pose(0, 8, Math.toRadians(90));
-    public Pose startPoseBlueCorner = new Pose(0, 0, Math.toRadians(-36));
 
     public double intakeMotorSpeed = 1;
     public double outtakeMotorSpeed = 1175;
@@ -17,5 +11,25 @@ public class RobotConstants {
     public double stopperDownPosition = 0.42;
     public double stopperUpPosition = 0.47;
     public double hiveCentricRotationSpeed = 0.496;
+
+
+
+
+    // Start Wall
+    public Pose startPoseRedWall = new Pose(8.422, 109.323, Math.toRadians(0));
+    public Pose startPoseBlueWall = startPoseRedWall;
+
+    // Start Corner
+    public Pose startPoseRedCorner = new Pose(118.638, 129.298, Math.toRadians(216));
+    public Pose startPoseBlueCorner = startPoseRedCorner;
+
+    // Score
+    public Pose scorePoseRed = new Pose(99.104, 92.945, Math.toRadians(45));
+    public Pose scorePoseBlue = scorePoseRed;
+
+    // End
+    public Pose endPoseRed = new Pose(95.694, 61.789, Math.toRadians(180));
+    public Pose endPoseBlue = endPoseRed;
+
 
 }

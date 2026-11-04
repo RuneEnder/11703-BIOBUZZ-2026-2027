@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import static org.firstinspires.ftc.teamcode.pedroPathing.Tuning.follower;
+
 import com.pedropathing.geometry.Pose;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -15,7 +17,14 @@ public class RobotVars {
     public RobotConstants constants = new RobotConstants();
     public AllianceColor allianceColor = AllianceColor.None;
     public boolean startsInCorner = false;
+
+
+
+
     public Pose startPose = constants.startPoseRedWall;
+    public Pose scorePose = constants.scorePoseRed;
+    public Pose endPose = constants.endPoseRed;
+
 
 
     public Boolean isIntakeActive = false;
@@ -27,11 +36,22 @@ public class RobotVars {
     public Pose2D robotPose = new Pose2D(DistanceUnit.INCH, 0,0, AngleUnit.DEGREES, 90);
 
 
-    public void setStartPose() {
+    public void setInitPoses() {
         if (allianceColor == AllianceColor.Blue && startsInCorner) startPose = constants.startPoseBlueCorner;
         if (allianceColor == AllianceColor.Blue && !startsInCorner) startPose = constants.startPoseBlueWall;
         if (allianceColor == AllianceColor.Red && startsInCorner) startPose = constants.startPoseRedCorner;
         if (allianceColor == AllianceColor.Red && !startsInCorner) startPose = constants.startPoseRedWall;
+
+        if (allianceColor == AllianceColor.Blue) {
+            scorePose = constants.scorePoseBlue;
+            endPose = constants.endPoseBlue;
+        } else if (allianceColor == AllianceColor.Red) {
+            scorePose = constants.scorePoseRed;
+            endPose = constants.endPoseRed;
+        }
+
+        follower.setStartingPose(startPose);
+
     }
 
 
