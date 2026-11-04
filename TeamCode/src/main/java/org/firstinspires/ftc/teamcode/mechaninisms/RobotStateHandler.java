@@ -65,10 +65,10 @@ public class RobotStateHandler {
 
 
     public static void RunStateMachine(GamepadController gamepad) {
-        intake.runIntake_ToggleMode(gamepad.toggleIntakeButton());
-        outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton());
+        intake.runIntake_ToggleMode(gamepad.toggleIntakeButton(), gamepad.toggleReverseIntakeButton());
+        outtake.runOuttake_ToggleMode(gamepad.toggleOuttakeButton(), gamepad.toggleReverseOuttakeButton());
         stopper.runStopper_ToggleMode(gamepad.toggleStopperButton());
-        transfer.runTransfer_ToggleMode();
+        transfer.runTransfer_ToggleMode(gamepad.toggleTransferButton(), gamepad.toggleReverseIntakeButton());
 
     }
 }
