@@ -26,7 +26,7 @@ public class RobotVars {
     public Pose endPose = constants.endPoseRed;
 
 
-
+    public Boolean isShooting = false;
     public Boolean isIntakeActive = false;
     public Boolean isOuttakeActive = false;
     public Boolean isTransferActive = false;
