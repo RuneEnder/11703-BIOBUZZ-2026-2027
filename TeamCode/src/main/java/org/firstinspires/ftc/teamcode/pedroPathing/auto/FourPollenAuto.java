@@ -90,7 +90,7 @@ public class FourPollenAuto extends OpMode {
                 robotVars.isTransferActive = true;
                 robotVars.isOuttakeActive = true;
 
-                if ( Math.abs(robotStateHandler.outtake.outtakeMotor.getVelocity() - robotVars.constants.outtakeMotorSpeed) < robotVars.constants.allowedOuttakeSpeedError) {
+                if ( Math.abs(RobotStateHandler.outtake.outtakeMotor.getVelocity() - robotVars.constants.outtakeMotorSpeed) < robotVars.constants.allowedOuttakeSpeedError) {
                     setPathStateA(2);
                 }
                 break;
@@ -98,6 +98,17 @@ public class FourPollenAuto extends OpMode {
             case 2:
 
             case 3:
+                robotVars.isStopperDown = false;
+                robotVars.isIntakeActive = false;
+                robotVars.isTransferActive = false;
+                robotVars.isOuttakeActive = false;
+
+                setPathStateA(4);
+
+                break;
+
+
+            case 4:
 
                 // Moving to the end position
                 if (!follower.isBusy()) {
