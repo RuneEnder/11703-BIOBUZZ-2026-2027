@@ -97,8 +97,10 @@ public class FourPollenAuto extends OpMode {
 
             case 2:
 
-            case 3:
                 robotVars.isStopperDown = false;
+
+            case 3:
+                robotVars.isStopperDown = true;
                 robotVars.isIntakeActive = false;
                 robotVars.isTransferActive = false;
                 robotVars.isOuttakeActive = false;

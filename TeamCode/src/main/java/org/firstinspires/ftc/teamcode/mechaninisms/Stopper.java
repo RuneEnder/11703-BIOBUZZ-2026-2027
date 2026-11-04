@@ -23,13 +23,13 @@ public class Stopper {
 
     public void runStopper_ToggleMode(boolean shootButton) {
         if (shootButton && outtake.outtakeMotor.getVelocity() > robotVars.constants.outtakeMotorSpeed-50) {
-            robotVars.isStopperDown = false;
+            robotVars.isStopperDown = true;
 
             stopperServo.setPosition(robotVars.constants.stopperDownPosition);
 
             robotVars.isShooting = true;
         } else {
-            robotVars.isStopperDown = true;
+            robotVars.isStopperDown = false;
 
             stopperServo.setPosition(robotVars.constants.stopperUpPosition);
             robotVars.isShooting  = false;
