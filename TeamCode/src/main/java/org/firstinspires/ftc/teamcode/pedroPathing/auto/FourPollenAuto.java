@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.pedroPathing.auto;
 
 import com.pedropathing.follower.Follower;
 import com.pedropathing.geometry.BezierLine;
-import com.pedropathing.geometry.Pose;
 import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -15,7 +14,7 @@ import org.firstinspires.ftc.teamcode.utils.commands.AllianceColor;
 import org.firstinspires.ftc.teamcode.utils.commands.GamepadController;
 
 
-@Autonomous(name = "Four Pollen Auto", group = "Examples")
+@Autonomous(name = "Four Pollen Auto (PEDRO NOT WORKING DO NOT USE)", group = "Examples")
 public class FourPollenAuto extends OpMode {
 
     private Follower follower;

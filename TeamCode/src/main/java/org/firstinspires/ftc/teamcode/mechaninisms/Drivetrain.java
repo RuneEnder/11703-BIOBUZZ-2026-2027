@@ -1,20 +1,11 @@
 package org.firstinspires.ftc.teamcode.mechaninisms;
 
+import com.pedropathing.follower.Follower;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-
-import com.pedropathing.follower.Follower;
-import com.pedropathing.geometry.BezierLine;
-import com.pedropathing.geometry.Pose;
-import com.pedropathing.paths.PathChain;
-import com.pedropathing.util.Timer;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
-
-import org.firstinspires.ftc.teamcode.RobotConstants;
 import org.firstinspires.ftc.teamcode.RobotVars;
 import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 
@@ -27,9 +18,8 @@ public class Drivetrain {
 
     public final DcMotorEx leftFront, leftBack, rightBack, rightFront;
 
-    public Drivetrain(HardwareMap hardwareMapRef, RobotVars robotVars, RobotStateHandler robotStateHandlerRef) {
+    public Drivetrain(HardwareMap hardwareMapRef, RobotVars robotVars) {
         hardwareMap = hardwareMapRef;
-        robotStateHandler = robotStateHandlerRef;
 
         leftFront = hardwareMap.get(DcMotorEx.class, "lf");
         rightFront = hardwareMap.get(DcMotorEx.class, "rf");

@@ -21,7 +21,7 @@ public class RobotStateHandler {
         hardwareMap = hardwareMapRef;
         robotVars = robotVarsRef;
 
-        drive = new Drivetrain(hardwareMap, robotVars, this);
+        drive = new Drivetrain(hardwareMap, robotVars);
         intake = new Intake(hardwareMap, robotVars);
         outtake = new Outtake(hardwareMap, robotVars);
         stopper = new Stopper(hardwareMap, robotVars, outtake);
