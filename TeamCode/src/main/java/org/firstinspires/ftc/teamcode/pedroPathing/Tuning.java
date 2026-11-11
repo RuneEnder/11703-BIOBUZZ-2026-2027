@@ -38,8 +38,6 @@ import java.util.List;
 public class Tuning extends SelectableOpMode {
     public static Follower follower;
 
-    @IgnoreConfigurable
-    static PoseHistory poseHistory;
 
     @IgnoreConfigurable
     static TelemetryManager telemetryM;
@@ -86,7 +84,7 @@ public class Tuning extends SelectableOpMode {
 
         follower.setStartingPose(new Pose());
 
-        poseHistory = follower.getPoseHistory();
+        //poseHistory = follower.getPoseHistory();
 
         telemetryM = PanelsTelemetry.INSTANCE.getTelemetry();
 
