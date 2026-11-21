@@ -39,7 +39,7 @@ public class Drivetrain {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
-        follower = Constants.create(hardwareMap);
+        follower = Constants.createFollower(hardwareMap);
         follower.setStartingPose(robotVars.startPose);
 
     }

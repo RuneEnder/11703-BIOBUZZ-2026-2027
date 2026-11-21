@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.mechaninisms.Stopper;
 import org.firstinspires.ftc.teamcode.mechaninisms.Transfer;
 
 @Autonomous(name = "Four Pollen Auto Rowan", group = "Linear OpMode")
-public class fourPollenAutoRowen extends LinearOpMode {
+public class fourPollenAutoRowan extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
 
     @Override
