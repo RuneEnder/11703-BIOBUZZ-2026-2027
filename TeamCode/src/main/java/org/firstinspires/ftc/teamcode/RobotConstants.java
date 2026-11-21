@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.pedropathing.math.Pose;
+import com.pedropathing.geometry.Pose;
 
 public class RobotConstants {
 
