@@ -39,8 +39,8 @@ public class Drivetrain {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
-        follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(robotVars.startPose);
+//        follower = Constants.createFollower(hardwareMap);
+//        follower.setStartingPose(robotVars.startPose);
 
     }
 
@@ -106,7 +106,8 @@ public class Drivetrain {
         follower.update();
 
         // Figure out the follower
-        double yaw = follower.getPose().getHeading();
+//        double yaw = follower.getPose().getHeading();
+        double yaw = 0;
 
         // Get user values
         double x = left_stick_x;

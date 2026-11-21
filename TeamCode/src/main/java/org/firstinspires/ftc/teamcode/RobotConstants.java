@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.pedropathing.geometry.Pose;
+import com.pedropathing.math.Pose;
 
 public class RobotConstants {
 
@@ -17,7 +17,7 @@ public class RobotConstants {
 
 
     // Start Wall
-    public Pose startPoseRedWall = new Pose(8.422, 109.323, Math.toRadians(0));
+    public Pose  startPoseRedWall = new Pose(8.422, 109.323, Math.toRadians(0));
     public Pose startPoseBlueWall = startPoseRedWall;
 
     // Start Corner
